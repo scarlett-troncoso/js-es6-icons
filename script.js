@@ -160,11 +160,25 @@ iconsDati.forEach((icon) => {
 })
 
 
-
 /*
-<div class="row">
-    <div class="col-8">
-
-    </div>
-</div>
+Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 */
+
+//function per select
+
+console.log('--------------------------');
+
+//const iconSelect = document.getElementById("select_icon")
+const selectType = document.getElementById("select_icon")
+
+const icon_animal = iconsDati.filter(icon => icon.type === 'animal')
+
+selectType.addEventListener('select', function(){
+    if (selectType.value === 'animal') {
+    console.log(icon_animal);}
+    })
+
+
+
+
+
