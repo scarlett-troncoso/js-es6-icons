@@ -133,3 +133,32 @@ const iconsDati = [
 ];
 
 console.log(iconsDati);
+
+const containerDiv = document.querySelector('.container .row')
+
+iconsDati.forEach((icon) => {
+    console.log(`${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}`);
+
+    const iconsDiv =
+    `<div class="col-8">
+        <div class="${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}">
+        </div>
+        <p>${icon.name}</p>
+    </div>`
+
+    containerDiv.insertAdjacentHTML('beforeend', iconsDiv)
+
+
+
+
+})
+
+
+
+/*
+<div class="row">
+    <div class="col-8">
+
+    </div>
+</div>
+*/
