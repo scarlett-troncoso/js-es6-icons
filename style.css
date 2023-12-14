@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.orange{
+    color: orange;
+}
+
+.blue{
+    color: blue;
+}
+
+.green{
+    color: green;
+}
