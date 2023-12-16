@@ -169,14 +169,20 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 console.log('--------------------------');
 
 //const iconSelect = document.getElementById("select_icon")
-const selectType = document.getElementById("select_icon")
+//const selectType = document.getElementById("select_icon")
+const typeAnimal = document.querySelector('.animal')
 
 const icon_animal = iconsDati.filter(icon => icon.type === 'animal')
 
-selectType.addEventListener('select', function(){
-    if (selectType.value === 'animal') {
+console.log(icon_animal);
+
+console.log('--------------------------');
+
+typeAnimal.addEventListener('select', function(){
+    if (typeAnimal.value === animal) {
     console.log(icon_animal);}
     })
+
 
 
 
