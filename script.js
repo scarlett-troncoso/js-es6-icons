@@ -140,6 +140,8 @@ const iconsDati = [
 
 console.log(iconsDati);
 
+
+
 const containerDiv = document.querySelector('.container .row')
 
 iconsDati.forEach((icon) => {
@@ -154,11 +156,7 @@ iconsDati.forEach((icon) => {
 
     containerDiv.insertAdjacentHTML('beforeend', iconsDiv)
 
-
-
-
 })
-
 
 /*
 Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
@@ -170,7 +168,7 @@ console.log('--------------------------');
 
 const iconSelect = document.getElementById("select_icon")
 
-const typeAnimal = document.querySelector('.animal')
+const typeIcon = document.querySelector('.icon_type')
 
 const icon_animal = iconsDati.filter(icon => icon.type === 'animal')
 
@@ -179,10 +177,34 @@ console.log(icon_animal);
 console.log('--------------------------');
 
 iconSelect.addEventListener('change', function(){
-    if (typeAnimal.value === 'animal')
+    if (typeIcon.value === 'animal') {
 	console.log(icon_animal);
-	
-    });
+
+	icon_animal.forEach((iconAn) => {
+
+	const iconsDivAnimal =
+    `<div class="col-8 m-3">
+        <div class="${iconAn.prefix}${iconAn.name} ${iconAn.family} ${iconAn.color}">
+        </div>
+        <p>${iconAn.name}</p>
+    </div>`
+
+    containerDiv.insertAdjacentHTML('beforeend', iconsDivAnimal)
+
+	})} else if (typeIcon.value === 'vegetable') {
+		
+		icon_vegetable.forEach((iconVeg) => {
+
+	const iconsDivVegetable =
+    `<div class="col-8 m-3">
+        <div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
+        </div>
+        <p>${iconVeg.name}</p>
+    </div>`
+
+    containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) });
+		
+}});
 
 
 
