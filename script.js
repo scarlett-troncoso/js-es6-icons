@@ -149,7 +149,7 @@ iconsDati.forEach((icon) => {
 	`<div class="col-1 m-3">
 		<div class="${icon.prefix}${icon.name} ${icon.family} ${icon.color}">
 		</div>
-		<p>${icon.name}</p>
+		<p class="m-0">${icon.name}</p>
 	</div>`
 
 	containerDiv.insertAdjacentHTML('beforeend', iconsDiv)	
@@ -183,7 +183,7 @@ console.log('--------------------------');
 iconSelect.addEventListener('change', funSelector);
 
 function funSelector(e){
-    if (iconSelect.value === 'animal') { //prima era : typeIcon.value
+    if (iconSelect.value === 'animal') {
 	console.log(icon_animal);
 
 	containerDiv.innerHTML = ""
@@ -213,7 +213,7 @@ function funSelector(e){
 				<p>${iconVeg.name}</p>
 			</div>`
 
-		containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) 
+			containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) 
 
 			})} else if (iconSelect.value === 'user') {
 				console.log(icon_user);
@@ -222,22 +222,15 @@ function funSelector(e){
 	
 				icon_user.forEach((iconUs) => {
 	
-			const iconsDivUser =
-			`<div class="col-1 m-3">
-				<div class="${iconUs.prefix}${iconUs.name} ${iconUs.family} ${iconUs.color}">
-				</div>
-				<p>${iconUs.name}</p>
-			</div>`
-	
-			containerDiv.insertAdjacentHTML('beforeend', iconsDivUser)
+				const iconsDivUser =
+				`<div class="col-1 m-3">
+					<div class="${iconUs.prefix}${iconUs.name} ${iconUs.family} ${iconUs.color}">
+					</div>
+					<p>${iconUs.name}</p>
+				</div>`
+		
+				containerDiv.insertAdjacentHTML('beforeend', iconsDivUser)
 		
 				})}
 			};
 
-
-
-
-/* buonasera vorrei chiedere un sugerimento sul esercizio 'js-es6-icons', 
-quando seleziono le icone con select, si stampano in pagina gli icons selezionati, 
-ma si mantengono pure quelli che cerano prima invece di rimanere in pagina sólo quelli selezionati. 
-Non mi ricordo proprio come risolvere questa situazione */
