@@ -140,23 +140,21 @@ const iconsDati = [
 
 console.log(iconsDati);
 
-
-
 const containerDiv = document.querySelector('.container .row')
 
 iconsDati.forEach((icon) => {
-    console.log(`${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}`);
+	console.log(`${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}`);
 
-    const iconsDiv =
-    `<div class="col-1 m-3">
-        <div class="${icon.prefix}${icon.name} ${icon.family} ${icon.color}">
-        </div>
-        <p>${icon.name}</p>
-    </div>`
+	const iconsDiv =
+	`<div class="col-1 m-3">
+		<div class="${icon.prefix}${icon.name} ${icon.family} ${icon.color}">
+		</div>
+		<p>${icon.name}</p>
+	</div>`
 
-    containerDiv.insertAdjacentHTML('beforeend', iconsDiv)
-
+	containerDiv.insertAdjacentHTML('beforeend', iconsDiv)	
 })
+
 
 /*
 Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
@@ -179,6 +177,7 @@ const icon_vegetable = iconsDati.filter(icon => icon.type === 'vegetable')
 const icon_user = iconsDati.filter(icon => icon.type === 'user')
 
 
+
 console.log('--------------------------');
 
 iconSelect.addEventListener('change', funSelector);
@@ -186,6 +185,8 @@ iconSelect.addEventListener('change', funSelector);
 function funSelector(e){
     if (iconSelect.value === 'animal') { //prima era : typeIcon.value
 	console.log(icon_animal);
+
+	containerDiv.innerHTML = ""
 
 	icon_animal.forEach((iconAn) => {
 
@@ -201,19 +202,23 @@ function funSelector(e){
 		})} else if (iconSelect.value === 'vegetable') {
 			console.log(icon_vegetable);
 
+			containerDiv.innerHTML = ""
+
 			icon_vegetable.forEach((iconVeg) => {
 
-		const iconsDivVegetable =
-		`<div class="col-1 m-3">
-			<div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
-			</div>
-			<p>${iconVeg.name}</p>
-		</div>`
+			const iconsDivVegetable =
+			`<div class="col-1 m-3">
+				<div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
+				</div>
+				<p>${iconVeg.name}</p>
+			</div>`
 
 		containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) 
 
 			})} else if (iconSelect.value === 'user') {
 				console.log(icon_user);
+
+				containerDiv.innerHTML = ""
 	
 				icon_user.forEach((iconUs) => {
 	
@@ -226,9 +231,13 @@ function funSelector(e){
 	
 			containerDiv.insertAdjacentHTML('beforeend', iconsDivUser)
 		
-})}};
+				})}
+			};
 
 
 
 
-
+/* buonasera vorrei chiedere un sugerimento sul esercizio 'js-es6-icons', 
+quando seleziono le icone con select, si stampano in pagina gli icons selezionati, 
+ma si mantengono pure quelli che cerano prima invece di rimanere in pagina sólo quelli selezionati. 
+Non mi ricordo proprio come risolvere questa situazione */
