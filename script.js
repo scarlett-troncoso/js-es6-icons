@@ -234,3 +234,13 @@ function funSelector(e){
 				})}
 			};
 
+/* BONUS
+const cod = Math.floor(Math.random( ) * 10)
+console.log(cod);
+
+const letras = ['A', 'B', 'C', 'D', 'E', 'F']
+
+const lun = Math.floor(Math.random() * letras.length)
+console.log(lun);
+console.log(lun.valueOf());
+*/
