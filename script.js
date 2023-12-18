@@ -148,7 +148,7 @@ iconsDati.forEach((icon) => {
     console.log(`${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}`);
 
     const iconsDiv =
-    `<div class="col-8 m-3">
+    `<div class="col-1 m-3">
         <div class="${icon.prefix}${icon.name} ${icon.family} ${icon.color}">
         </div>
         <p>${icon.name}</p>
@@ -168,22 +168,29 @@ console.log('--------------------------');
 
 const iconSelect = document.getElementById("select_icon")
 
-const typeIcon = document.querySelector('.icon_type')
+//const typeIcon = document.querySelector('.form-select')  //prima era:   .icon_type  //non é necesario quest costante
+
+// Filtrare segun il tipo
 
 const icon_animal = iconsDati.filter(icon => icon.type === 'animal')
 
-console.log(icon_animal);
+const icon_vegetable = iconsDati.filter(icon => icon.type === 'vegetable')
+
+const icon_user = iconsDati.filter(icon => icon.type === 'user')
+
 
 console.log('--------------------------');
 
-iconSelect.addEventListener('change', function(){
-    if (typeIcon.value === 'animal') {
+iconSelect.addEventListener('change', funSelector);
+
+function funSelector(e){
+    if (iconSelect.value === 'animal') { //prima era : typeIcon.value
 	console.log(icon_animal);
 
 	icon_animal.forEach((iconAn) => {
 
 	const iconsDivAnimal =
-    `<div class="col-8 m-3">
+    `<div class="col-1 m-3">
         <div class="${iconAn.prefix}${iconAn.name} ${iconAn.family} ${iconAn.color}">
         </div>
         <p>${iconAn.name}</p>
@@ -191,21 +198,35 @@ iconSelect.addEventListener('change', function(){
 
     containerDiv.insertAdjacentHTML('beforeend', iconsDivAnimal)
 
-	})} else if (typeIcon.value === 'vegetable') {
+		})} else if (iconSelect.value === 'vegetable') {
+			console.log(icon_vegetable);
+
+			icon_vegetable.forEach((iconVeg) => {
+
+		const iconsDivVegetable =
+		`<div class="col-1 m-3">
+			<div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
+			</div>
+			<p>${iconVeg.name}</p>
+		</div>`
+
+		containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) 
+
+			})} else if (iconSelect.value === 'user') {
+				console.log(icon_user);
+	
+				icon_user.forEach((iconUs) => {
+	
+			const iconsDivUser =
+			`<div class="col-1 m-3">
+				<div class="${iconUs.prefix}${iconUs.name} ${iconUs.family} ${iconUs.color}">
+				</div>
+				<p>${iconUs.name}</p>
+			</div>`
+	
+			containerDiv.insertAdjacentHTML('beforeend', iconsDivUser)
 		
-		icon_vegetable.forEach((iconVeg) => {
-
-	const iconsDivVegetable =
-    `<div class="col-8 m-3">
-        <div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
-        </div>
-        <p>${iconVeg.name}</p>
-    </div>`
-
-    containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) });
-		
-}});
-
+})}};
 
 
 
