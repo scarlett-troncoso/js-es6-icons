@@ -143,15 +143,15 @@ console.log(iconsDati);
 const containerDiv = document.querySelector('.container .row')
 
 iconsDati.forEach((icon) => {
-	console.log(`${icon.name} ${icon.prefix}${icon.type} ${icon.family} ${icon.color}`);
+	console.log(`${icon.name} ${icon.prefix + icon.type} ${icon.family} ${icon.color}`);
 
 	const iconsDiv =
 	`<div class="col-1 m-3">
-		<div class="${icon.prefix}${icon.name} ${icon.family} ${icon.color}">
+		<div class="${icon.prefix + icon.name} ${icon.family} ${icon.color}">
 		</div>
 		<p class="m-0">${icon.name}</p>
 	</div>`
-
+	//containerDiv.style.color = icon.color
 	containerDiv.insertAdjacentHTML('beforeend', iconsDiv)	
 })
 
@@ -192,11 +192,11 @@ function funSelector(e){
 
 	const iconsDivAnimal =
     `<div class="col-1 m-3">
-        <div class="${iconAn.prefix}${iconAn.name} ${iconAn.family} ${iconAn.color}">
+        <div class="${iconAn.prefix + iconAn.name} ${iconAn.family}">
         </div>
         <p>${iconAn.name}</p>
     </div>`
-
+	containerDiv.style.color = iconAn.color
     containerDiv.insertAdjacentHTML('beforeend', iconsDivAnimal)
 
 		})} else if (iconSelect.value === 'vegetable') {
@@ -208,11 +208,11 @@ function funSelector(e){
 
 			const iconsDivVegetable =
 			`<div class="col-1 m-3">
-				<div class="${iconVeg.prefix}${iconVeg.name} ${iconVeg.family} ${iconVeg.color}">
+				<div class="${iconVeg.prefix + iconVeg.name} ${iconVeg.family}">
 				</div>
 				<p>${iconVeg.name}</p>
 			</div>`
-
+			containerDiv.style.color = iconVeg.color
 			containerDiv.insertAdjacentHTML('beforeend', iconsDivVegetable) 
 
 			})} else if (iconSelect.value === 'user') {
@@ -224,11 +224,11 @@ function funSelector(e){
 	
 				const iconsDivUser =
 				`<div class="col-1 m-3">
-					<div class="${iconUs.prefix}${iconUs.name} ${iconUs.family} ${iconUs.color}">
+					<div class="${iconUs.prefix + iconUs.name} ${iconUs.family}">
 					</div>
 					<p>${iconUs.name}</p>
 				</div>`
-		
+				containerDiv.style.color = iconUs.color
 				containerDiv.insertAdjacentHTML('beforeend', iconsDivUser)
 		
 				})}
