@@ -163,7 +163,7 @@ const icon_user = iconsDati.filter(icon => icon.type === 'user')
 
 // Evento, alla selezione di una opzione della select, chiamare la function
 
-iconSelect.addEventListener('change', funSelector());
+iconSelect.addEventListener('change', funSelector);
 
 
 /* Funzione per selezionare gli icons */
